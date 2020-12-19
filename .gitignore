@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Ignore the Devcontainer Cockroach Data files
+.devcontainer/data/node_1/*
+!.devcontainer/data/node_1/.gitkeep
+
 # User-specific files
 *.rsuser
 *.suo

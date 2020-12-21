@@ -5,7 +5,7 @@ services:
     container_name: node_1
     image: cockroachdb/cockroach:latest
     volumes:
-        - ./data/node_1:/cockroach/cockroach-data
+        - ../data/node_1:/cockroach/cockroach-data
     command: start-single-node --insecure
     ports:
       - "26257:26257"
@@ -27,11 +27,14 @@ services:
         NODE_VERSION: "lts/*"
         INSTALL_AZURE_CLI: "false"
         # On Linux, you may need to update USER_UID and USER_GID below if not your local UID is not 1000.
-        # USER_UID: 1000
-        # USER_GID: 1000
+        USER_UID: 1000
+        USER_GID: 1000
     volumes:
       - ..:/workspace:cached
     command: sleep infinity
+    # ports:
+    #   - "5000:5000"
+    #   - "5001:5001"
     networks:
       cockroachdb_net:
         aliases:
